@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Práticas </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+               🚜 Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente 🌳
+            </h1>
+            <p>Compartilhe fotos e vídeos de ações que equilibram produção e meio ambiente </p>
+            <p>👨‍💻Colégio Estadual Rio Branco👨‍💻</p>
+        </div>
+
+        <button class="btn-compartilhar" onclick="abrirModal()">
+            <i class="fas fa-camera"></i>
+            Compartilhar Foto ou Vídeo
+            <i class="fas fa-video"></i>
+        </button>
+
+        <div class="filtros">
+            <button class="filtro-btn ativo" onclick="filtrarPublicacoes('todos', this)">
+                <i class="fas fa-globe"></i> Todos
+            </button>
+            <button class="filtro-btn" onclick="filtrarPublicacoes('foto', this)">
+                <i class="fas fa-camera"></i> Fotos
+            </button>
+            <button class="filtro-btn" onclick="filtrarPublicacoes('video', this)">
+                <i class="fas fa-video"></i> Vídeos
+            </button>
+        </div>
+
+        <div class="estatisticas" id="estatisticas">
+            <div class="estatistica-item">
+                <div class="estatistica-valor" id="total-publicacoes">0</div>
+                <div class="estatistica-label">Total de Contribuições</div>
+            </div>
+            <div class="estatistica-item">
+                <div class="estatistica-valor" id="total-fotos">0</div>
+                <div class="estatistica-label">Fotos</div>
+            </div>
+            <div class="estatistica-item">
+                <div class="estatistica-valor" id="total-videos">0</div>
+                <div class="estatistica-label">Vídeos</div>
+            </div>
+        </div>
+
+        <div id="publicacoes" class="publicacoes-grid"></div>
+    </div>
+
+    <div id="publicacaoModal" class="modal">
+        <div class="modal-content">
+            <h2>
+                <i class="fas fa-upload"></i>
+                Compartilhar Boa Prática
+            </h2>
+
+            <form id="formPublicacao" onsubmit="event.preventDefault(); publicar();">
+                <div class="form-group">
+                    <label>Seu nome:</label>
+                    <input type="text" id="nome" placeholder="Como você quer ser identificado?" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Título da prática:</label>
+                    <input type="text" id="titulo" placeholder="Ex: Reaproveitamento de água na lavoura" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Categoria:</label>
+                    <select id="categoria" required>
+                        <option value="Agricultura Sustentável">🌱 Agricultura Sustentável</option>
+                        <option value="Reciclagem">♻️ Reciclagem</option>
+                        <option value="Energia Renovável">☀️ Energia Renovável</option>
+                        <option value="Preservação">🌳 Preservação Ambiental</option>
+                        <option value="Produção Orgânica">🥕 Produção Orgânica</option>
+                        <option value="Compostagem">🔄 Compostagem</option>
+                        <option value="Outros">📌 Outros</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de mídia:</label>
+                    <select id="tipoMidia" onchange="toggleMidiaUpload()" required>
+                        <option value="foto">📸 Foto</option>
+                        <option value="video">🎥 Vídeo</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="midiaUploadGroup">
+                    <label>Selecione o arquivo:</label>
+                    <input type="file" id="midiaUpload" accept="image/*,video/*" onchange="previewMidia()" required>
+                    <div id="preview" class="preview-container"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Descrição da prática:</label>
+                    <textarea id="descricao" placeholder="Descreva sua prática, como ela ajuda o meio ambiente e quais resultados você tem obtido..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Tags (separadas por vírgula):</label>
+                    <input type="text" id="tags" placeholder="Ex: sustentabilidade, água, reciclagem">
+                </div>
+
+                <div class="modal-buttons">
+                    <button type="button" class="btn-secondary" onclick="fecharModal()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Publicar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="comando-ajuda">
+        <i class="fas fa-terminal"></i> Digite /ajuda para ver os comandos disponíveis
+    </div>
+    
+    <div id="prompt-container">
+        📡
+        <input type="text" id="inputComando" placeholder="Digite seu comando aqui..." autofocus>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
