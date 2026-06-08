@@ -3,7 +3,7 @@
 # Boas práticas
 
 📋 Sobre o Projeto
-Agro Forte, Futuro Sustentável é uma plataforma web interativa desenvolvida para incentivar e compartilhar práticas sustentáveis no agronegócio. O projeto foi criado pelo jhuan Pablo do Colégio Estadual Rio Branco com o objetivo de promover o equilíbrio entre produção agrícola e preservação ambiental.
+O projeto sobre boas práticas é uma página web interativa desenvolvida para incentivar e compartilhar práticas sustentáveis no agronegócio. O projeto foi criado pelo jhuan Pablo do Colégio Estadual Rio Branco com o objetivo de promover o equilíbrio entre produção agrícola e preservação ambiental.
 
 A aplicação permite que usuários compartilhem fotos e vídeos de iniciativas sustentáveis, criando uma comunidade colaborativa de conhecimento e boas práticas.
 
